@@ -1,5 +1,5 @@
 h3 {
-  color: #f2d3ac;
+  color: #F2D3AC;
 }
 
 h5 {
@@ -11,13 +11,13 @@ h6 {
 }
 
 h2 {
-  color: #a4a677;
+  color: #A4A677;
 }
 
 .navigation-clean {
   background: var(--bs-gray-800);
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
   color: var(--bs-gray-300);
   border-radius: 0;
   box-shadow: none;
@@ -25,7 +25,7 @@ h2 {
   margin-bottom: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .navigation-clean {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -46,8 +46,7 @@ h2 {
   border-color: #ddd;
 }
 
-.navigation-clean .navbar-toggler:hover,
-.navigation-clean .navbar-toggler:focus {
+.navigation-clean .navbar-toggler:hover, .navigation-clean .navbar-toggler:focus {
   background: none;
 }
 
@@ -55,9 +54,7 @@ h2 {
   color: var(--bs-gray-600);
 }
 
-.navigation-clean.navbar-light .navbar-nav .nav-link.active,
-.navigation-clean.navbar-light .navbar-nav .nav-link.active:focus,
-.navigation-clean.navbar-light .navbar-nav .nav-link.active:hover {
+.navigation-clean.navbar-light .navbar-nav .nav-link.active, .navigation-clean.navbar-light .navbar-nav .nav-link.active:focus, .navigation-clean.navbar-light .navbar-nav .nav-link.active:hover {
   color: var(--bs-gray-600);
   box-shadow: none;
   background: none;
@@ -73,8 +70,7 @@ h2 {
   color: var(--bs-gray-500);
 }
 
-.navigation-clean.navbar-light .navbar-nav .nav-link:focus,
-.navigation-clean.navbar-light .navbar-nav .nav-link:hover {
+.navigation-clean.navbar-light .navbar-nav .nav-link:focus, .navigation-clean.navbar-light .navbar-nav .nav-link:hover {
   color: var(--bs-gray-100) !important;
   background-color: transparent;
 }
@@ -86,25 +82,23 @@ h2 {
   border-radius: 2px;
 }
 
-.navigation-clean .dropdown-menu .dropdown-item:focus,
-.navigation-clean .dropdown-menu .dropdown-item {
+.navigation-clean .dropdown-menu .dropdown-item:focus, .navigation-clean .dropdown-menu .dropdown-item {
   line-height: 2;
   color: var(--bs-gray-900);
 }
 
-.navigation-clean .dropdown-menu .dropdown-item:focus,
-.navigation-clean .dropdown-menu .dropdown-item:hover {
+.navigation-clean .dropdown-menu .dropdown-item:focus, .navigation-clean .dropdown-menu .dropdown-item:hover {
   background: #eee;
   color: inherit;
 }
 
 body {
-  background-color: #2f3136;
-  font-family: "JetBrains Mono", monospace;
+  background-color: #2F3136;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 h4 {
-  color: #a66e4e;
+  color: #A66E4E;
 }
 
 .some-desc {
@@ -119,18 +113,18 @@ h4 {
 }
 
 .scroll2 {
-  background-color: #2f3136;
+  background-color: #2F3136;
   -webkit-transition: background-color 300ms linear;
   -ms-transition: background-color 300ms linear;
   transition: background-color 300ms linear;
 }
 
 .darkOnWhite2 {
-  color: #1a1625;
+  color: #1A1625;
 }
 
 .darkOnWhite3 {
-  color: #28262b;
+  color: #28262B;
   padding-top: 20px;
   padding-bottom: 10px;
 }
@@ -145,27 +139,22 @@ h4 {
   padding-bottom: 140px;
 }
 
-.container.text-center {
-  height: 100vh;
-  max-height: 100vh;
-}
-
 .col.text-center {
   height: 100%;
 }
 
 .col60p {
   max-width: 60%;
-  align-self: center !important;
+  align-self: center!important;
 }
 
 .col40p {
-  align-self: center !important;
+  align-self: center!important;
   max-width: 40%;
 }
 
 #invite-btn {
-  background-color: #7289da;
+  background-color: #7289DA;
   padding-top: 8px;
   padding-right: 25px;
   /*color: black;*/
@@ -173,7 +162,7 @@ h4 {
 }
 
 .highlight {
-  color: #a66e4e;
+  color: #A66E4E;
 }
 
 #gameCanvas {
@@ -212,8 +201,8 @@ h4 {
 }
 
 .invis {
-  width: 0px !important;
-  height: 0px !important;
+  width: 0px!important;
+  height: 0px!important;
   opacity: 0%;
   visibility: hidden;
 }
@@ -276,3 +265,9 @@ h4 {
   padding-bottom: 0px;
   margin-top: 1rem;
 }
+
+#contact-iframe {
+  max-width: 100%;
+  max-height: 100%;
+}
+
