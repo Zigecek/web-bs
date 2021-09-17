@@ -190,7 +190,7 @@ h4 {
 }
 
 #game-00 {
-  content: url("O.png");
+  content: url("../../assets/img/O.png");
   height: 10rem;
   width: 10rem;
 }
