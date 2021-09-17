@@ -143,14 +143,18 @@ h4 {
   height: 100%;
 }
 
-.col60p {
-  max-width: 60%;
-  align-self: center!important;
+@media (min-width: 768px) {
+  .col60p {
+    max-width: 60%;
+    align-self: center!important;
+  }
 }
 
-.col40p {
-  align-self: center!important;
-  max-width: 40%;
+@media (min-width: 768px) {
+  .col40p {
+    align-self: center!important;
+    max-width: 40%;
+  }
 }
 
 #invite-btn {
@@ -269,5 +273,15 @@ h4 {
 #contact-iframe {
   max-width: 100%;
   max-height: 100%;
+}
+
+.game-btn-difficulty {
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+.toggler-icon {
+  background-image: url("/assets/img/menu.svg")!important;
 }
 
