@@ -103,10 +103,11 @@ h4 {
 
 .some-desc {
   color: var(--bs-gray-400);
-  margin-bottom: 5px!important;
-  margin-left: 5px!important;
-  margin-right: 5px!important;
-  margin-top: 5px!important;
+  /*margin-bottom: 5px!important;*/
+  /*margin-left: 5px!important;*/
+  /*margin-right: 5px!important;*/
+  /*margin-top: 5px!important;*/
+  padding: 5px;
 }
 
 .scroll1 {
