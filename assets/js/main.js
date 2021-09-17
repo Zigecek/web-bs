@@ -35,11 +35,10 @@ let difficulty = 1; // obtížnost, 0 easy, 1 medium, 2 hard
 function loop() {
   roundNum += 1;
   playing = true;
-  let roundEl = document.getElementById('game-player');
-  if (roundEl) roundEl.innerHTML = ((cp == p1) ? 'X' : (cp == p2) ? '0' : ' ');
+  $('#game-player').html(((cp == p1) ? 'X' : (cp == p2) ? '0' : ' '));
   for (let y = 0; y < 3; y++) {
     for (let x = 0; x <3; x++) {
-      setField(x + 1, y + 1, board[x][y], null);
+      setField(x + 1, y + 1, board[x][y]);
     }
   }
   let res = checkForWinner();
@@ -105,13 +104,10 @@ function endGame(winner, section){
   playing = false;
   if (winner == 0 || winner == 1) {
     section.forEach(e => {
-      setField(e[0], e[1], (winner == p2 ? 2 : 3), null);
+      setField(e[0], e[1], (winner == p2 ? 2 : 3));
     })
     invis(true, ['game-round'], ['game-btn-human', 'game-btn-ai']);
-    let gameWon = document.getElementById('game-won-span');
-    if (gameWon) {
-      gameWon.innerHTML = winner == p1 ? 'X' : winner == p2 ? 'O' : ' ';
-    }
+    $('#game-won-span').html((winner == p1 ? 'X' : winner == p2 ? 'O' : ' '));
     invis(false, ['game-won'], []);
     setTimeout(() => {
       if (playing) return;
@@ -256,48 +252,38 @@ function gameClick(el){
 
 function invis(boo, ar1, ar2) {
   ar1.forEach(id => {
-    let el = document.getElementById(id);
-    if (el) {
-      if (boo) {
-        el.classList.add('invis');
-      } else {
-        el.classList.remove('invis');
-      }
+    if (boo) {
+      $(`#${id}`).addClass('invis');
+    } else {
+      $(`#${id}`).removeClass('invis');
     }
   });
   
   ar2.forEach(id => {
-    let el = document.getElementById(id);
-    if (el) {
-      if (!boo) {
-        el.classList.add('disabled');
-      } else {
-        el.classList.remove('disabled');
-      }
+    if (!boo) {
+      $(`#${id}`).addClass('disabled');
+    } else {
+      $(`#${id}`).removeClass('disabled');
     }
   });
 }
 
 // horní axis
-function setField(x, y, type, elem) {
-  let el;
-  if (!elem) {
-    el = document.getElementById('game-' + x + y);
-  }
+function setField(x, y, type) {
   if (type == 0) {
-    el.src = document.location.origin + "/assets/img/O.png";
+    $('#game-' + x + y).attr('src', document.location.origin + "/assets/img/O.png");
     return;
   } else if (type == 1) {
-    el.src = document.location.origin + "/assets/img/X.png";
+    $('#game-' + x + y).attr('src', document.location.origin + "/assets/img/X.png");
     return;
   } else if (type == null) {
-    el.src = document.location.origin + "/assets/img/blank.png";
+    $('#game-' + x + y).attr('src', document.location.origin + "/assets/img/blank.png");
     return;
   } else if (type == 2) {
-    el.src = document.location.origin + "/assets/img/O-colored.png";
+    $('#game-' + x + y).attr('src', document.location.origin + "/assets/img/O-colored.png");
     return;
   } else if (type == 3) {
-    el.src = document.location.origin + "/assets/img/X-colored.png";
+    $('#game-' + x + y).attr('src', document.location.origin + "/assets/img/X-colored.png");
     return;
   }
 }
