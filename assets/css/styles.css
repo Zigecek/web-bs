@@ -137,7 +137,8 @@ h4 {
 
 .container.invisible {
   height: 0px;
-  padding-bottom: 140px;
+  padding-bottom: 85px;
+  padding-top: 85px;
 }
 
 .col.text-center {
@@ -195,7 +196,7 @@ h4 {
 }
 
 #game-00 {
-  content: url("../../assets/img/O.png");
+  content: url("O.png");
   height: 10rem;
   width: 10rem;
 }
@@ -284,5 +285,9 @@ h4 {
 
 .toggler-icon {
   background-image: url("/assets/img/menu.svg")!important;
+}
+
+.col {
+  padding: 15px;
 }
 

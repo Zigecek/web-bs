@@ -9,8 +9,11 @@
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:500&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/scrollbar.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-<script src="http://chancejs.com/chance.min.js"></script><link id="icon-a" rel="shortcut icon" type="image/png" href="zigger.png" />
+<script src="http://chancejs.com/chance.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script><link id="icon-a" rel="shortcut icon" type="image/png" href="zigger.png" />
 <link id="icon-b" rel="shortcut icon" type="image/png" href="avatar.png" />
 </head>
 
@@ -30,7 +33,7 @@
         </div>
     </nav>
     <div class="container invisible" id="about-me"></div>
-    <div class="container text-center">
+    <div class="container text-center" id="about-me-content">
         <h2 class="text-center heading2">About me</h2>
         <div class="row text-center d-inline d-sm-inline d-md-flex">
             <div class="col text-center align-self-center">
@@ -52,7 +55,7 @@
         </div>
     </div>
     <div class="container invisible" id="contact"></div>
-    <div class="container text-center">
+    <div class="container text-center" id="contact-content">
         <h2 class="text-center heading2">Contact</h2>
         <div class="row text-center d-inline d-sm-inline d-md-inline d-lg-flex">
             <div class="col text-center align-self-center">
@@ -76,7 +79,7 @@
         </div>
     </div>
     <div class="container invisible" id="tic-tac-toe"></div>
-    <div class="container text-center">
+    <div class="container text-center" id="tic-tac-toe-content">
         <h2 class="text-center heading2">Tic Tac Toe</h2>
         <div class="col align-items-center">
             <div class="row">
@@ -118,7 +121,7 @@
         </div>
     </div>
     <div class="container invisible" id="zigger"></div>
-    <div class="container text-center">
+    <div class="container text-center" id="zigger-content">
         <h2 class="text-center heading2">Zigger</h2>
         <div class="row d-inline d-sm-inline d-md-flex">
             <div class="col col40p">
@@ -132,7 +135,7 @@
         </div>
     </div>
     <div class="container invisible" id="donate"></div>
-    <div class="container text-center">
+    <div class="container text-center" id="donate-content">
         <h2 class="text-center heading2">Donate</h2>
         <div class="row">
             <div class="col">
@@ -151,6 +154,7 @@
     <div class="container invisible"></div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/magicscroll.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/socials.js"></script>
 </body>
