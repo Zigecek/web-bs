@@ -18,3 +18,7 @@
 ::-webkit-scrollbar:hover {
 }
 
+.h5 {
+  color: var(--bs-gray-400);
+}
+
