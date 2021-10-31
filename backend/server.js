@@ -1,7 +1,7 @@
 require("dotenv").config();
 require("./utils/mongoose").init();
-var hostnamePort = "";
-var host = "";
+var hostnamePort;
+var host;
 var hostPort;
 require("./models/Config").findOne(
   {
@@ -15,7 +15,6 @@ require("./models/Config").findOne(
     }
     console.log(Cres);
     hostnamePort = Cres.ngrokRpiSSH;
-    hostnamePort = hostnamePort.replace("tcp://", "");
     host = hostnamePort.match("/d.tcp.eu.ngrok.io")[0];
     hostPort = hostnamePort.match("/d{4,6}")[0];
   }
