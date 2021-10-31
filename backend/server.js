@@ -4,6 +4,7 @@ const { createServer } = require("http");
 const socketIo = require("socket.io");
 var SSHClient = require("ssh2").Client;
 require("dotenv").config();
+const fs = require("fs");
 
 const app = express();
 const httpServer = createServer(app);
