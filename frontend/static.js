@@ -1,4 +1,5 @@
 const port = process.env.PORT || 80;
+console.log("PORT: " + port);
 var http = require("http");
 
 var finalhandler = require("finalhandler");
