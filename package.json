@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "backend/server.js",
   "scripts": {
-    "start": "npm run i && npm run node",
+    "start": "npm run node",
     "node": "node ./backend/server.js",
     "i": "npm i dotenv@latest express@latest finalhandler@latest http@latest mongoose@5.13.7 serve-static@latest socket.io@4.3.1 ssh2@latest fs@latest"
   },
