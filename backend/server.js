@@ -21,7 +21,7 @@ const io = socketIo(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  console.log(scoket.id);
+  console.log(socket.id);
   socket.on("hostname", (opt) => {
     console.log(opt);
     var conn = new SSHClient();
