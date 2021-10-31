@@ -7,6 +7,7 @@ var SSHClient = require("ssh2").Client;
 var serveStatic = require("serve-static");
 
 const port = process.env.PORT || 80;
+console.log("PORT: " + port);
 const app = express();
 app.use(serveStatic("./frontend/"));
 const httpServer = createServer(app);
