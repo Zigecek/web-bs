@@ -4,25 +4,15 @@ const { createServer } = require("http");
 const socketIo = require("socket.io");
 var SSHClient = require("ssh2").Client;
 require("dotenv").config();
-const fs = require("fs");
+const port = process.env.PORT || 80;
 
 const app = express();
 const httpServer = createServer(app);
-httpServer.listen(3000);
-
-fs.readFile("./frontend/index.html", function (err, html) {
-  if (err) {
-    throw err;
-  }
-  app.get("/", (req, res) => {
-    res.sendStatus(200);
-    res.end(html);
-  });
-});
+httpServer.listen(port);
 
 const io = socketIo(httpServer, {
   cors: {
-    origin: "https://kozohorsky.xyz:80",
+    origin: "https://kozohorsky.xyz",
     methods: ["GET", "POST"],
   },
 });
