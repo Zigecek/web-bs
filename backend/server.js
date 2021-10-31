@@ -1,12 +1,14 @@
-require("../frontend/static");
+require("dotenv").config();
+//require("../frontend/static");
 const express = require("express");
 const { createServer } = require("http");
 const socketIo = require("socket.io");
 var SSHClient = require("ssh2").Client;
-require("dotenv").config();
-const port = process.env.PORT || 80;
+var serveStatic = require("serve-static");
 
+const port = process.env.PORT || 80;
 const app = express();
+app.use(serveStatic("./frontend/"));
 const httpServer = createServer(app);
 httpServer.listen(port);
 
@@ -18,6 +20,7 @@ const io = socketIo(httpServer, {
 });
 
 io.on("connection", (socket) => {
+  console.log(scoket.id);
   socket.on("hostname", (opt) => {
     console.log(opt);
     var conn = new SSHClient();
