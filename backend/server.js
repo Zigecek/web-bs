@@ -13,13 +13,9 @@ require("./models/Config").findOne(
       error.sendError(err);
       return;
     }
-    console.log(Cres);
     hostnamePort = Cres.ngrokRpiSSH;
-    console.log(hostnamePort);
     host = hostnamePort.match(/\d.tcp.eu.ngrok.io/)[0];
-    console.log(host);
     hostPort = hostnamePort.match(/\d{4,6}/)[0];
-    console.log(hostPort);
   }
 );
 const express = require("express");
