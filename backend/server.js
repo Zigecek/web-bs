@@ -1,4 +1,4 @@
-require('../frontend/static');
+require("../frontend/static");
 const express = require("express");
 const { createServer } = require("http");
 const socketIo = require("socket.io");
@@ -9,7 +9,15 @@ const app = express();
 const httpServer = createServer(app);
 httpServer.listen(3000);
 
-app.get("/");
+fs.readFile("./frontend/index.html", function (err, html) {
+  if (err) {
+    throw err;
+  }
+  app.get("/", (req, res) => {
+    res.sendStatus(200);
+    res.end(html);
+  });
+});
 
 const io = socketIo(httpServer, {
   cors: {
