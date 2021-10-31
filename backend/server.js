@@ -27,6 +27,7 @@ io.on("connection", (socket) => {
     var conn = new SSHClient();
     conn
       .on("ready", function () {
+        socket.emit("conekt");
         socket.emit("data", "\r\n*** SSH CONNECTION ESTABLISHED ***\r\n");
         conn.shell({ term: "xterm-256color" }, function (err, stream) {
           if (err)
@@ -50,6 +51,7 @@ io.on("connection", (socket) => {
         });
       })
       .on("close", function () {
+        socket.emit("disconekt");
         socket.emit("data", "\r\n*** SSH CONNECTION CLOSED ***\r\n");
       })
       .on("error", function (err) {
