@@ -1,30 +1,14 @@
 setInterval(() => {
+  var birth = new Date('2006-04-28T05:10:00');
   var now = new Date();
-    birth = new Date('2006-04-28T05:10:00');
-    milis = (now.getTime() - birth.getTime());
-    seconds = Math.floor(milis / 1000),
-    minutes = Math.floor(seconds / 60),
-    hours   = Math.floor(minutes / 60),
-    days    = Math.floor(hours / 24),
-    months  = Math.floor(days / 30),
-    years   = Math.floor(days / 365);
-
-  milis %= 1000;
-  milis = milis.toString().padStart(3, '0');
-  seconds %= 60;
-  minutes %= 60;
-  hours %= 24;
-  days %= 30;
-  months %= 12;
+  var printOut = (now.getTime() - birth.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
   
-  $('#ageMilisecond').html(milis);
-  $('#ageSecond').html(seconds);
-  $('#ageMinute').html(minutes);
-  $('#ageHour').html(hours);
-  $('#ageDay').html(days);
-  $('#ageMonth').html(months);
-  $('#ageYear').html(years);
-}, 35);
+  var el = document.getElementById('ageNumber');
+
+  if (el) {
+    el.innerHTML = printOut.toFixed(12);
+  }
+}, 1);
 
 function activeItems (el) {
  Array.from(document.getElementsByClassName("nav-link")).forEach(function(e) {

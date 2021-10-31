@@ -1,0 +1,21 @@
+{
+  "name": "web-bs",
+  "version": "1.0.0",
+  "main": "backend/server.js",
+  "scripts": {
+    "is": "node ./backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zigecek/web-bs.git"
+  },
+  "author": "kozohorsky.xyz",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "mongoose": "^5.13.7",
+    "socket.io": "^4.3.1",
+    "ssh2": "^1.5.0"
+  }
+}
