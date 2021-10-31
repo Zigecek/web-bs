@@ -9,9 +9,7 @@ const app = express();
 const httpServer = createServer(app);
 httpServer.listen(3000);
 
-app.get("/", (req, res) => {
-  res.send("co sem lezeš");
-});
+app.get("/");
 
 const io = socketIo(httpServer, {
   cors: {
