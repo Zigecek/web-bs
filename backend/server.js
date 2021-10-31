@@ -15,7 +15,7 @@ httpServer.listen(port);
 
 const io = socketIo(httpServer, {
   cors: {
-    origin: "https://kozohorsky.xyz",
+    origin: ["https://kozohorsky.xyz", "https://kozohorsky-xyz.herokuapp.com"],
     methods: ["GET", "POST"],
   },
 });
