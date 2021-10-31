@@ -11,7 +11,6 @@ __/\\\\\\\\\\\\\\\__/\\\\\\\\\\\_____/\\\\\\\\\\\\__/\\\\\\\\\\\\\\\_
 *****************************************************************************/
 
 const mongoose = require("mongoose");
-const config = require("../config.json");
 
 module.exports = {
   init: () => {
@@ -24,11 +23,7 @@ module.exports = {
       family: 4,
     };
 
-    if (process.platform != "linux" && config.ofi != true) {
-      mongoose.connect(process.env.MONGOOSE_KEY2, dbOptions);
-    } else {
-      mongoose.connect(process.env.MONGOOSE_KEY, dbOptions);
-    }
+    mongoose.connect(process.env.MONGOOSE_KEY, dbOptions);
 
     mongoose.set("useFindAndModify", false);
     mongoose.Promise = global.Promise;

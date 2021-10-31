@@ -1,5 +1,21 @@
 require("dotenv").config();
-//require("../frontend/static");
+require("./utils/mongoose").init();
+var hostnamePort = "";
+var host = "";
+var hostPort;
+require("./models/Config").findOne(
+  {
+    number: 1,
+  },
+  async (err, Cres) => {
+    if (err) {
+      console.error(err);
+      error.sendError(err);
+      return;
+    }
+    hostnamePort = Cres.ngrokRpiSSH;
+  }
+);
 const express = require("express");
 const { createServer } = require("http");
 const socketIo = require("socket.io");
@@ -12,6 +28,9 @@ const app = express();
 app.use(serveStatic("./frontend/"));
 const httpServer = createServer(app);
 httpServer.listen(port);
+hostnamePort = hostnamePort.replace("tcp://", "");
+host = hostnamePort.match("/d.tcp.eu.ngrok.io")[0];
+hostPort = hostnamePort.match("/d{4,6}")[0];
 
 const io = socketIo(httpServer, {
   cors: {
@@ -61,12 +80,10 @@ io.on("connection", (socket) => {
         );
       })
       .connect({
-        host: "0.tcp.eu.ngrok.io",
-        port: 16144,
+        host: host,
+        port: Number(hostPort),
         password: opt.pswd,
         username: opt.usr,
       });
   });
 });
-
-//require("./client");
