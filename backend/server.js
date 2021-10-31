@@ -1,3 +1,4 @@
+require('../frontend/static');
 const express = require("express");
 const { createServer } = require("http");
 const socketIo = require("socket.io");
