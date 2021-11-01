@@ -48,11 +48,13 @@ io.on("connection", (socket) => {
         socket.emit("conekt");
         socket.emit("data", "\r\n*** SSH CONNECTION ESTABLISHED ***\r\n");
         conn.shell({ term: "xterm-256color" }, function (err, stream) {
-          if (err)
+          if (err) {
+            socket.emit("disconekt");
             return socket.emit(
               "data",
               "\r\n*** SSH SHELL ERROR: " + err.message + " ***\r\n"
             );
+          }
           socket.on("data", function (data) {
             stream.write(data);
           });
