@@ -47,7 +47,8 @@ socket.on('disconekt', () => {
 $(document).ready(function(){
     $(".txtar").on('keyup', function (e) {
     if (e.key === 'Enter' || e.keyCode === 13) {
-        $('#btn-login').click();
+      $('#btn-login').click();
+      $('#btn-login').focus();
     }
 });
 });
