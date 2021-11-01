@@ -45,10 +45,11 @@ socket.on('disconekt', () => {
 });
 
 $(document).ready(function(){
-    $('txtar').keypress(function(e){
-      if(e.keyCode==13)
-      $('#linkadd').click();
-    });
+    $(".txtar").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        $('#btn-login').click();
+    }
+});
 });
 
 function fitit(){
