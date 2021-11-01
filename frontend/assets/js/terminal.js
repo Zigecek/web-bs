@@ -11,6 +11,7 @@ term.write('kozohorsky.xyz - log in.');
 
 var socket = io.connect('https://kozohorsky.xyz');
 socket.on('connect', function() {
+    term.clear();
     term.write('\r\n*** Connected to backend ***\r\n');
 });
 

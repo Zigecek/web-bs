@@ -55,9 +55,13 @@ io.on("connection", (socket) => {
               "\r\n*** SSH SHELL ERROR: " + err.message + " ***\r\n"
             );
           }
-          socket.on("data", function (data) {
-            stream.write(data);
-          });
+          socket
+            .on("data", function (data) {
+              stream.write(data);
+            })
+            .on("disconnect", (reason) => {
+              conn.end();
+            });
           stream
             .on("data", function (d) {
               socket.emit(
