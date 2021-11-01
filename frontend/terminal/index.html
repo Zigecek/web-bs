@@ -17,13 +17,16 @@
 <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.4.0/lib/xterm-addon-fit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xterm@4.14.1/lib/xterm.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.14.1/css/xterm.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="contak">
         <div id="terminal"></div>
         <div id="barriera" class="over"></div>
-        <div id="over" class="over"><input type="text" id="usr" class="txtar" placeholder="Uživatelské jméno"><br/><input type="password" id="pswd" class="txtar" placeholder="Heslo"><br/><button class="btn btn-primary" id="btn-login" type="button" onclick="login(this)">Připojit se</button></div>
+        <div id="over" class="over"><input type="text" id="usr" class="txtar" placeholder="Uživatelské jméno"><input type="password" id="pswd" class="txtar" placeholder="Heslo"><button class="btn btn-primary" id="btn-login" type="button" onclick="login(this)">Připojit se</button></div>
     </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>

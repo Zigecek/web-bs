@@ -43,3 +43,16 @@ socket.on('disconekt', () => {
   $('#barriera').removeClass('visually-hidden');
   $('#barriera').removeClass('disabled');
 });
+
+$(document).ready(function(){
+    $('txtar').keypress(function(e){
+      if(e.keyCode==13)
+      $('#linkadd').click();
+    });
+});
+
+function fitit(){
+  fituj.fit();
+}
+
+window.addEventListener('resize', fitit);

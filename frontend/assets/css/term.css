@@ -27,6 +27,7 @@ body {
 }
 
 #over {
+  display: flex;
   margin-top: 35vh;
   margin-left: 35vw;
   margin-bottom: 40vh;
@@ -39,7 +40,10 @@ body {
   border-color: #1F3136;
   border-radius: 3vh;
   text-align: center;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 #barriera {
@@ -64,5 +68,11 @@ body {
 #btn-login {
   width: 15vw;
   height: 7vh;
+}
+
+.over {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
