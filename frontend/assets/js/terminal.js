@@ -30,7 +30,14 @@ socket.on('disconnect', function() {
 });
 
 function login(el){
-    socket.emit('hostname', { pswd: $('#pswd').val(), usr: $('#usr').val() });
+    if ($('#host').val() == 'rpi') {
+      socket.on('sendHost', hostInfo => {
+        socket.emit('hostname', { pswd: $('#pswd').val(), usr: $('#usr').val(), port: hostInfo.port, host: hostInfo.host });
+      });
+      socket.emit('getHost');
+    } else {
+      socket.emit('hostname', { pswd: $('#pswd').val(), usr: $('#usr').val(), port: $('#port').val(), host: $('#host').val() });
+    }
 }
 
 socket.on('conekt', () => {

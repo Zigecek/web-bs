@@ -39,9 +39,10 @@ const io = socketIo(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  socket.on("getHost", () => {
+    socket.emit("sendHost", { host: host, port: hostPort });
+  });
   socket.on("hostname", (opt) => {
-    console.log(opt);
     var conn = new SSHClient();
     conn
       .on("ready", function () {
@@ -55,10 +56,9 @@ io.on("connection", (socket) => {
               "\r\n*** SSH SHELL ERROR: " + err.message + " ***\r\n"
             );
           }
-          socket
-            .on("data", function (data) {
-              stream.write(data);
-            });
+          socket.on("data", function (data) {
+            stream.write(data);
+          });
           stream
             .on("data", function (d) {
               socket.emit(
@@ -82,8 +82,8 @@ io.on("connection", (socket) => {
         );
       })
       .connect({
-        host: host,
-        port: Number(hostPort),
+        host: opt.host,
+        port: Number(opt.port),
         password: opt.pswd,
         username: opt.usr,
       });
