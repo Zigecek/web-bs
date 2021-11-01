@@ -58,9 +58,6 @@ io.on("connection", (socket) => {
           socket
             .on("data", function (data) {
               stream.write(data);
-            })
-            .on("disconnect", (reason) => {
-              conn.end();
             });
           stream
             .on("data", function (d) {
