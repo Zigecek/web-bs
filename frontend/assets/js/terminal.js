@@ -32,7 +32,6 @@ socket.on('disconnect', function() {
 function login(el){
     if ($('#host').val() == 'rpi') {
       socket.on('sendHost', hostInfo => {
-        console.log(hostInfo);
         socket.emit('hostname', { 
           pswd: $('#pswd').val(), 
           usr: $('#usr').val(), 
