@@ -43,6 +43,7 @@ io.on("connection", (socket) => {
     socket.emit("sendHost", { host: host, port: hostPort });
   });
   socket.on("hostname", (opt) => {
+    console.log(opt);
     var conn = new SSHClient();
     conn
       .on("ready", function () {
