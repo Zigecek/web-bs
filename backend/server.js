@@ -3,21 +3,7 @@ require("./utils/mongoose").init();
 var hostnamePort;
 var host;
 var hostPort;
-require("./models/Config").findOne(
-  {
-    number: 1,
-  },
-  (err, Cres) => {
-    if (err) {
-      console.error(err);
-      error.sendError(err);
-      return;
-    }
-    hostnamePort = Cres.ngrokRpiSSH;
-    host = hostnamePort.match(/\d.tcp.eu.ngrok.io/)[0];
-    hostPort = hostnamePort.match(/\d{4,6}/)[0];
-  }
-);
+
 const express = require("express");
 const { createServer } = require("http");
 const socketIo = require("socket.io");
@@ -40,7 +26,22 @@ const io = socketIo(httpServer, {
 
 io.on("connection", (socket) => {
   socket.on("getHost", () => {
-    socket.emit("sendHost", { host: host, port: hostPort });
+    require("./models/Config").findOne(
+      {
+        number: 1,
+      },
+      (err, Cres) => {
+        if (err) {
+          console.error(err);
+          error.sendError(err);
+          return;
+        }
+        hostnamePort = Cres.ngrokRpiSSH;
+        host = hostnamePort.match(/\d.tcp.eu.ngrok.io/)[0];
+        hostPort = hostnamePort.match(/\d{4,6}/)[0];
+        socket.emit("sendHost", { host: host, port: hostPort });
+      }
+    );
   });
   socket.on("hostname", (opt) => {
     var conn = new SSHClient();
