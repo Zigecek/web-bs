@@ -82,6 +82,7 @@ io.on("connection", (socket) => {
           "data",
           "\r\n*** SSH CONNECTION ERROR: " + err.message + " ***\r\n"
         );
+        conn.end();
       })
       .connect({
         host: opt.host,
