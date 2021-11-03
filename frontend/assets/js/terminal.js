@@ -9,16 +9,20 @@ term.loadAddon(fituj);
 fituj.fit();
 term.write('kozohorsky.xyz - log in.');
 
-var socket = io.connect('https://kozohorsky.xyz');
+var socket = io.connect('https://kozohorsky.xyz', {
+  reconnect: true
+});
 socket.on('connect', function() {
     term.clear();
     term.write('\r\n*** Connected to backend ***\r\n');
 });
 
+        // Browser -> Backend
 term.onKey(function (ev) {
     socket.emit('data', ev.key);
 });
 
+        // Backend -> Browser
 socket.on('data', function(data) {
     term.write(data);
 });
