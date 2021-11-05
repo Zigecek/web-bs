@@ -77,6 +77,7 @@ io.on("connection", (socket) => {
         socket.emit("disconekt");
         socket.emit("data", "\r\n*** SSH CONNECTION CLOSED ***\r\n");
         conn.end();
+        conn.close(); 
       })
       .on("error", function (err) {
         socket.emit(
