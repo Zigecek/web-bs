@@ -25,7 +25,7 @@ const io = socketIo(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  console.log(socket);
+  console.log(socket.id);
   socket.on("getHost", () => {
     require("./models/Config").findOne(
       {
