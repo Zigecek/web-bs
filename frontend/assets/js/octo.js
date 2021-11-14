@@ -6,7 +6,7 @@ socket.on('connect', function() {
 });
 
 socket.on('takeZero', url => {
-    window.location.href = url;
+    window.location.replace(url);
 });
 
 socket.emit('getZero');
