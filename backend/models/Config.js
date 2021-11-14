@@ -46,6 +46,14 @@ const configSchema = mongoose.Schema({
     default: "",
     type: String,
   },
+  ngrokZeroSSH: {
+    default: "",
+    type: String,
+  },
+  ngrokZeroUrl: {
+    default: "",
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Config", configSchema, "config");

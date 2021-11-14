@@ -26,6 +26,21 @@ const io = socketIo(httpServer, {
 
 io.on("connection", (socket) => {
   console.log(socket.id);
+  socket.on("getZero", () => {
+    require("./models/Config").findOne(
+      {
+        number: 1,
+      },
+      (err, Cres) => {
+        if (err) {
+          console.error(err);
+          error.sendError(err);
+          return;
+        }
+        socket.emit("takeZero", Cres.ngrokZeroUrl);
+      }
+    );
+  });
   socket.on("getHost", () => {
     require("./models/Config").findOne(
       {
