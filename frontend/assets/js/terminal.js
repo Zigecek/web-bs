@@ -9,29 +9,30 @@ term.loadAddon(fituj);
 fituj.fit();
 term.write("kozohorsky.xyz - log in.");
 
-var socket = io.connect("https://kozohorsky.xyz", {
-  reconnect: true,
-});
-socket.on("connect", function () {
-  term.clear();
-  term.write("\r\n*** Connected to backend ***\r\n");
-});
+var socket;
+
+function connect() {
+  socket = io.connect("https://kozohorsky.xyz", {
+    reconnect: true,
+  });
+  socket.on("connect", function () {
+    term.clear();
+    term.write("\r\n*** Connected to backend ***\r\n");
+  });
+  // Backend -> Browser
+  socket.on("data", function (data) {
+    term.write(data);
+  });
+  socket.on("disconnect", function () {
+    term.write("\r\n*** Disconnected from backend ***\r\n");
+
+    connect();
+  });
+}
 
 // Browser -> Backend
 term.onKey(function (ev) {
   socket.emit("data", ev.key);
-});
-
-// Backend -> Browser
-socket.on("data", function (data) {
-  term.write(data);
-});
-
-socket.on("disconnect", function () {
-  term.write("\r\n*** Disconnected from backend ***\r\n");
-  socket = io.connect("https://kozohorsky.xyz", {
-    reconnect: true,
-  });
 });
 
 function login(el) {
