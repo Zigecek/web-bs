@@ -19,7 +19,10 @@ httpServer.listen(port);
 
 const io = socketIo(httpServer, {
   cors: {
-    origin: ["https://kozohorsky.xyz", "https://kozohorsky-xyz.herokuapp.com", /*"http://195.113.226.101"*/],
+    origin: [
+      "https://kozohorsky.xyz",
+      "https://kozohorsky-xyz.herokuapp.com" /*"http://195.113.226.101"*/,
+    ],
     methods: ["GET", "POST"],
   },
 });
@@ -86,12 +89,15 @@ io.on("connection", (socket) => {
             .on("close", function () {
               conn.end();
             });
+          conn.on("close", () => {
+            stream.removeAllListeners("data");
+          });
         });
       })
       .on("close", function () {
         socket.emit("disconekt");
         socket.emit("data", "\r\n*** SSH CONNECTION CLOSED ***\r\n");
-        conn.removeAllListeners('ready');
+        conn.removeAllListeners("ready");
         conn.end();
       })
       .on("error", function (err) {
