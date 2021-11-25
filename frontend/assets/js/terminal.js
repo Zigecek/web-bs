@@ -30,6 +30,8 @@ function connect() {
   });
 }
 
+connect();
+
 // Browser -> Backend
 term.onKey(function (ev) {
   socket.emit("data", ev.key);
