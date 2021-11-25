@@ -79,33 +79,25 @@ io.on("connection", (socket) => {
           socket.on("data", function (data) {
             stream.write(data);
           });
-          stream
-            .on("data", function (d) {
-              socket.emit(
-                "data",
-                decodeURIComponent(escape(d.toString("binary")))
-              );
-            })
-            .on("close", function () {
-              conn.end();
-            });
-          conn.on("close", () => {
-            stream.removeAllListeners("data");
+          stream.on("data", function (d) {
+            socket.emit(
+              "data",
+              decodeURIComponent(escape(d.toString("binary")))
+            );
           });
         });
       })
       .on("close", function () {
         socket.emit("disconekt");
         socket.emit("data", "\r\n*** SSH CONNECTION CLOSED ***\r\n");
-        conn.removeAllListeners("ready");
-        conn.end();
+        socket.disconnect(true);
       })
       .on("error", function (err) {
         socket.emit(
           "data",
           "\r\n*** SSH CONNECTION ERROR: " + err.message + " ***\r\n"
         );
-        conn.end();
+        socket.disconnect(true);
       })
       .connect({
         host: opt.host,

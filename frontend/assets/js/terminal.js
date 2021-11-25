@@ -29,6 +29,9 @@ socket.on("data", function (data) {
 
 socket.on("disconnect", function () {
   term.write("\r\n*** Disconnected from backend ***\r\n");
+  socket = io.connect("https://kozohorsky.xyz", {
+    reconnect: true,
+  });
 });
 
 function login(el) {
