@@ -15,9 +15,12 @@ function connect() {
   socket = io.connect("https://kozohorsky.xyz", {
     reconnect: true,
   });
+  socket.on("conekt", hide);
+  socket.on("disconekt", show);
   socket.on("connect", function () {
     term.clear();
     term.write("\r\n*** Connected to backend ***\r\n");
+    show();
   });
   // Backend -> Browser
   socket.on("data", function (data) {
@@ -25,7 +28,7 @@ function connect() {
   });
   socket.on("disconnect", function () {
     term.write("\r\n*** Disconnected from backend ***\r\n");
-
+    hide();
     connect();
   });
 }
@@ -58,17 +61,17 @@ function login(el) {
   }
 }
 
-socket.on("conekt", () => {
+function hide() {
   $("#over").addClass("visually-hidden");
   $("#barriera").addClass("visually-hidden");
   $("#barriera").addClass("disabled");
-});
+}
 
-socket.on("disconekt", () => {
+function show() {
   $("#over").removeClass("visually-hidden");
   $("#barriera").removeClass("visually-hidden");
   $("#barriera").removeClass("disabled");
-});
+}
 
 $(document).ready(function () {
   $(".txtar").on("keyup", function (e) {
