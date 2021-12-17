@@ -12,6 +12,7 @@ let transporter = nodemailer.createTransport({
 
 transporter.sendMail(
   {
+    from: "\"Cyka Blyat 👻\" <registrace@cykablyat.cz>",
     to: ["honza007cz@hotmail.com"],
     subject: "Registrace",
     text: "test",
