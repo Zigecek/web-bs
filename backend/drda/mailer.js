@@ -8,6 +8,10 @@ let transporter = nodemailer.createTransport({
     user: process.env.SEZNAM_EMAIL,
     pass: process.env.SEZNAM_PASS,
   },
+  dkim: {
+    domainNamw: "emailprofi.seznam.cz",
+    keySelector: "beta",
+  },
 });
 
 transporter.sendMail(
