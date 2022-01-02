@@ -1,7 +1,7 @@
 let fituj = new FitAddon.FitAddon();
 var term = new Terminal({
   fastScrollModifier: true,
-  rendererType: "dom",
+  rendererType: "canvas",
   cursorStyle: "bar",
 });
 term.open(document.getElementById("terminal"));

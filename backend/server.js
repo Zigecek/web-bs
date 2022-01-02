@@ -12,17 +12,16 @@ var serveStatic = require("serve-static");
 
 const port = process.env.PORT || 80;
 console.log("PORT: " + port);
+
 const app = express();
 app.use(serveStatic("./frontend/"));
+
 const httpServer = createServer(app);
 httpServer.listen(port);
 
 const io = socketIo(httpServer, {
   cors: {
-    origin: [
-      "https://kozohorsky.xyz",
-      "https://kozohorsky-xyz.herokuapp.com" /*"http://195.113.226.101"*/,
-    ],
+    origin: ["https://kozohorsky.xyz", "https://kozohorsky-xyz.herokuapp.com"],
     methods: ["GET", "POST"],
   },
 });
