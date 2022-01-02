@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run node",
     "node": "node ./backend/server.js",
-    "i": "npm i dotenv@latest express@latest finalhandler@latest http@latest mongoose@5.13.7 serve-static@latest socket.io@4.3.1 ssh2@latest fs@latest"
+    "i": "npm i dotenv@latest express@latest finalhandler@latest http@latest mongoose@5.13.7 serve-static@latest socket.io@4.3.1 ssh2@latest fs@latest nodemailer@latest"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "http": "^0.0.1-security",
     "mongoose": "^5.13.7",
+    "nodemailer": "^6.7.2",
     "serve-static": "^1.14.1",
     "socket.io": "^4.3.1",
     "ssh2": "^1.5.0"
