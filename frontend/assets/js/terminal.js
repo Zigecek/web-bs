@@ -13,6 +13,16 @@ var term = new Terminal({
 term.open(document.getElementById("terminal"));
 term.loadAddon(fituj);
 fituj.fit();
+
+var isWebglEnabled = false;
+try {
+  const webgl = new WebglAddon.WebglAddon();
+  term.loadAddon(webgl);
+  isWebglEnabled = true;
+} catch (e) {
+  console.warn('WebGL addon threw an exception during load', e);
+}
+
 term.write("kozohorsky.xyz - log in.");
 
 var socket;
