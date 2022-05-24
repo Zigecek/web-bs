@@ -1,30 +1,35 @@
-setInterval(() => {
-  var now = new Date();
-    birth = new Date('2006-04-28T05:10:00');
-    milis = (now.getTime() - birth.getTime());
-    seconds = Math.floor(milis / 1000),
-    minutes = Math.floor(seconds / 60),
-    hours   = Math.floor(minutes / 60),
-    days    = Math.floor(hours / 24),
-    months  = Math.floor(days / 30),
-    years   = Math.floor(days / 365);
+const birth = new Date("2006-04-28T05:10:00").getTime();
 
-  milis %= 1000;
-  milis = milis.toString().padStart(3, '0');
-  seconds %= 60;
-  minutes %= 60;
-  hours %= 24;
-  days %= 30;
-  months %= 12;
-  
-  $('#ageMilisecond').html(milis);
-  $('#ageSecond').html(seconds);
-  $('#ageMinute').html(minutes);
-  $('#ageHour').html(hours);
-  $('#ageDay').html(days);
-  $('#ageMonth').html(months);
-  $('#ageYear').html(years);
-}, 35);
+      setInterval(() => {
+        let now = new Date();
+        let milis = now.getTime() - birth;
+
+        let modulo = 1000 * 60 * 60 * 24 * 365;
+
+        var years = Math.floor(milis / modulo);
+        var days = Math.floor((milis - modulo * years) / (modulo / 365));
+        milis -= modulo * years;
+        modulo /= 365;
+        var hours = Math.floor((milis - modulo * days) / (modulo / 24));
+        milis -= modulo * days;
+        modulo /= 24;
+        var minutes = Math.floor((milis - modulo * hours) / (modulo / 60));
+        milis -= modulo * hours;
+        modulo /= 60;
+        var seconds = Math.floor((milis - modulo * minutes) / (modulo / 60));
+        milis -= modulo * minutes;
+        modulo /= 60;
+        var mseconds = Math.floor((milis - modulo * seconds) / (modulo / 1000))
+          .toString()
+          .padStart(3, "0");
+
+        $("#ageMilisecond").html(mseconds);
+        $("#ageSecond").html(seconds);
+        $("#ageMinute").html(minutes);
+        $("#ageHour").html(hours);
+        $("#ageDay").html(days);
+        $("#ageYear").html(years);
+      }, 35);
 
 function activeItems (el) {
  Array.from(document.getElementsByClassName("nav-link")).forEach(function(e) {

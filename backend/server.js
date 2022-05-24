@@ -1,6 +1,5 @@
 require("dotenv").config();
 require("./utils/mongoose").init();
-require("./drda/mailer.js");
 var hostnamePort;
 var host;
 var hostPort;
