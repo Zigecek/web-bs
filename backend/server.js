@@ -1,20 +1,24 @@
 const fs = require("fs");
 const express = require("express");
-const { createServer } = require("https");
+const https = require("https");
+const http = require("http");
 const serveStatic = require("serve-static");
 
-const port = 443;
 const app = express();
-const privateKey = fs.readFileSync("/etc/letsencrypt/live/kozohorsky.xyz/privkey.pem");
-const certificate = fs.readFileSync("/etc/letsencrypt/live/kozohorsky.xyz/fullchain.pem");
+const privateKey = fs.readFileSync("/etc/letsencrypt/live/kozohorsky.xyz/privkey.pem", "utf-8");
+const certificate = fs.readFileSync("/etc/letsencrypt/live/kozohorsky.xyz/cert.pem", "utf-8");
 
 console.log("PORT: " + port);
 app.use(serveStatic("./frontend/"));
 
-createServer(
-  {
-    key: privateKey,
-    cert: certificate,
-  },
-  app
-).listen(port);
+https
+  .createServer(
+    {
+      key: privateKey,
+      cert: certificate,
+    },
+    app
+  )
+  .listen(443);
+
+http.createServer(app).listen(80);
