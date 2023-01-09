@@ -1,9 +1,9 @@
 const fs = require("fs");
 const express = require("express");
-const { createServer } = require("http");
+const { createServer } = require("https");
 const serveStatic = require("serve-static");
 
-const port = process.env.PORT || 80;
+const port = 443;
 const app = express();
 const privateKey = fs.readFileSync("/etc/letsencrypt/live/kozohorsky.xyz/privkey.pem");
 const certificate = fs.readFileSync("/etc/letsencrypt/live/kozohorsky.xyz/fullchain.pem");

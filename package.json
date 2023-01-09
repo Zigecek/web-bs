@@ -9,7 +9,7 @@
     "restart": "pm2 restart server",
     "reload": "pm2 reload server",
     "update": "./git_pull.sh",
-    "install": "npm i fs@latest express@latest http@latest serve-static@latest"
+    "install": "npm i fs@latest express@latest https@latest serve-static@latest"
   },
   "repository": {
     "type": "git",
